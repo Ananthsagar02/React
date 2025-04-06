@@ -9,9 +9,11 @@ export const Body = () => {
 
   const [searchText, setSearchText] = useState(""); // Search Text
 
+  //Whenever state variables update, react triggers a reconcilation cycle (re-renders the component)
+  //Reconciliation - React will compare the previous state with the new state and update only the changed part of the DOM
   console.log("Body Render");
 
-  //useEffect(2 params) - callback function, dependencies
+  //useEffect(2 params) - (callback function, [dependencies array])
   useEffect(() => {
     console.log("useEffect called");
     fetchData();
@@ -56,7 +58,7 @@ export const Body = () => {
               const filterRestaurant = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-             // setListOfRestaurants(filterRestaurant); 
+              // setListOfRestaurants(filterRestaurant);
               setFilteredRestaurants(filterRestaurant);
             }}
           >
@@ -70,7 +72,7 @@ export const Body = () => {
             const filteredlist = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4.5
             );
-            setListOfRestaurants(filteredlist);
+            setFilteredRestaurants(filteredlist);
             // console.log(filteredlist);
           }}
         >
@@ -86,7 +88,7 @@ export const Body = () => {
         {filteredRestaurants.map((restaurant) => (
           //filtering all the restaurants
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-        ))} 
+        ))}
       </div>
     </div>
   );

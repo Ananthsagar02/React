@@ -70,14 +70,20 @@ React is different and JSX is different
 
 (Normal JS utility functions)
 
-- useState() ==> Superpowerful state Variables in React , scope is inside the component
+- useState() ==> Superpowerful state Variables in React, scope is inside the component  -- it is called inside component and top and don't use inside if or for 
 - useEffect() ==>
 - useEffect is called after body is render or component is render
 
+# useEffect //useEffect(2 params) - (callback function, [dependencies array])
+
+ - if no dependency array ==> useEffect is called every component render.
+ - if dependency array is empty [] ==> useEffect is called on initial render(just once).
+ - if dependency array is [state] ==> useEffect is called everytime state is updated
+
 # Re-render
 
-- whenever state variable updates or changes React will re-renders the components (or)
-- as soon as state variable updates React will re-render the component. very fast
+ - whenever state variable updates or changes React will re-renders the components (or)
+ - as soon as state variable updates React will re-render the component. very fast
 
 # Virtal DOM
 
@@ -97,7 +103,9 @@ React is different and JSX is different
 - Reconciliation - A high-level description of React's reconciliation algorithm.
 
 # Rendering component
- - it will call the component or function
+
+- it will call the component or function
 
 # loads --> Render --> API --> Render
-# React
+
+# Routing
