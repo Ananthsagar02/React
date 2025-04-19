@@ -108,4 +108,6 @@ React is different and JSX is different
 
 # loads --> Render --> API --> Render
 
-# Routing
+# 2 types Routing in web apps
+  - Client Side Routing
+  - Server Side Routing

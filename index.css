@@ -3,79 +3,100 @@
     margin: 0;
 } */
 .header {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
 }
 
 .logo {
-    width: 100px;
-    padding: 10px 0 10px 15px;
+  width: 100px;
+  padding: 10px 0 10px 15px;
 }
 .nav-items {
-    padding: 0px 20px;
+  padding: 0px 20px;
 }
 
 .nav-items > ul {
-    display: flex;
-    list-style: none;
-    font-size: 24px;
+  display: flex;
+  list-style: none;
+  font-size: 24px;
 }
 
 .nav-items > ul > li {
-    padding: 10px;
-    margin: 10px; 
+  padding: 10px;
+  margin: 10px;
 }
 
 .res-container {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.res-container a {
+  text-decoration: none;
+  color: black;
 }
 
 .res-card {
-    margin: 5px;
-    width: 200px;
-    padding: 5px;
-    background-color: #f0f0f0;
+  margin: 5px;
+  width: 200px;
+  padding: 5px;
+  background-color: #f0f0f0;
 }
 
 .res-card:hover {
-    cursor: pointer;
-    border: 1px solid black;
+  cursor: pointer;
+  border: 1px solid black;
 }
 
 .search {
-    padding: 10px;
+  padding: 10px;
 }
 
 .res-logo {
-    width: 100%;
-   height: 170px;  
-   
+  width: 100%;
+  height: 170px;
 }
 
 .filter-btn {
-    margin: 10px;
-    cursor: pointer;
+  margin: 10px;
+  cursor: pointer;
 }
 
 .shimmer-container {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .shimmer-card {
-    background-color: #f0f0f0;
-    width: 200px;
-    height: 450px;
-    margin: 5px;
-    padding: 5px;
+  background-color: #f0f0f0;
+  width: 200px;
+  height: 450px;
+  margin: 5px;
+  padding: 5px;
 }
 
 .login-btn {
-    padding: 0px 20px;
-    cursor: pointer;
+  padding: 0px 20px;
+  cursor: pointer;
 }
 
 .filter {
-    display: flex;
+  display: flex;
+}
+
+.menu-item-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  max-width: 880px;
+}
+
+.item-name {
+  margin-bottom: 10px;
 }
