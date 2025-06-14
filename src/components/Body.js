@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom/";
 
 export const Body = () => {
   // Local State Variable --Super powerful variable

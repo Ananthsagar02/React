@@ -70,20 +70,22 @@ React is different and JSX is different
 
 (Normal JS utility functions)
 
-- useState() ==> Superpowerful state Variables in React, scope is inside the component  -- it is called inside component and top and don't use inside if or for 
-- useEffect() ==>
+- useState() ==> Superpowerful state Variables in React, scope is inside the component -- it is called inside component and top and don't use inside if or for
+- useEffect() ==>To run code after the component renders.
 - useEffect is called after body is render or component is render
+
+# why useEffect used  ==> To run code after the component renders.
 
 # useEffect //useEffect(2 params) - (callback function, [dependencies array])
 
- - if no dependency array ==> useEffect is called every component render.
- - if dependency array is empty [] ==> useEffect is called on initial render(just once).
- - if dependency array is [state] ==> useEffect is called everytime state is updated
+- if no dependency array ==> useEffect is called every component render.
+- if dependency array is empty [] ==> useEffect is called on initial render(just once).
+- if dependency array is [state] ==> useEffect is called everytime state is updated
 
 # Re-render
 
- - whenever state variable updates or changes React will re-renders the components (or)
- - as soon as state variable updates React will re-render the component. very fast
+- whenever state variable updates or changes React will re-renders the components (or)
+- as soon as state variable updates React will re-render the component. very fast
 
 # Virtal DOM
 
@@ -109,5 +111,44 @@ React is different and JSX is different
 # loads --> Render --> API --> Render
 
 # 2 types Routing in web apps
-  - Client Side Routing
-  - Server Side Routing
+
+- Client Side Routing
+- Server Side Routing
+
+# _Episode 08 - Let's Get Classy_
+
+# React Class Based Component
+
+## Use Cases for Lifecycle Methods:
+
+# Life cycle phase two phases
+1. “Render phase” ==> in this phase constructor and Render
+2. “Commit phase”. ==> In this phase  ­React updates ­D­O­M and componentDidMount
+# Executes 
+constructor is called ==> Render ==> ­React updates ­D­O­M ==> componentDidMount
+
+### 1. constructor(props)
+
+- **Use Case:** Initializing state or binding event handlers.
+- **Example:** Setting up initial values for the state or binding methods to this.
+
+### 2. componentDidMount() --> it is used to make API calls
+   componentDidMount() is a lifecycle method in React that is called once a component has been rendered and placed in the DOM
+
+- **Use Case:** Fetching initial data, setting up subscriptions.
+- **Example:** Making an API call to fetch data and setting it in the state.
+
+### 3. shouldComponentUpdate(nextProps, nextState)
+
+- **Use Case:** Optimizing performance by preventing unnecessary re-renders.
+- **Example:** Comparing current props or state with next props or state and returning false if they are the same.
+
+### 4. componentDidUpdate(prevProps, prevState)
+
+- **Use Case:** Performing actions based on changes to props or state.
+- **Example:** Making an API call when a prop changes.
+
+### 5. componentWillUnmount() --> Leaving the page is called
+
+- **Use Case:** Cleaning up resources before the component is destroyed.
+- **Example:** Removing event listeners or canceling timers.

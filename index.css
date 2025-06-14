@@ -95,8 +95,14 @@
   align-items: center;
   gap: 30px;
   max-width: 880px;
+  margin-bottom: 25px;
+  background: beige;
 }
 
 .item-name {
   margin-bottom: 10px;
+}
+
+.user-card {
+  border: 1px solid blueviolet;
 }
