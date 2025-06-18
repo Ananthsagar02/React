@@ -152,3 +152,22 @@ constructor is called ==> Render ==> ­React updates ­D­O­M ==> componentDidM
 
 - **Use Case:** Cleaning up resources before the component is destroyed.
 - **Example:** Removing event listeners or canceling timers.
+
+# CUSTOM HOOK --> Hook are just kind of utility functions
+- Custom hooks in React JS are JavaScript functions that start with the word use and allow you to extract and reuse stateful logic across multiple components. 
+
+# Why use custom Hook
+- They help you avoid code duplication and keep your components clean and focused on rendering UI.Reuse logic, Keep components clean
+
+# lazy loading
+- Lazy loading in React is a technique to load components or resources only when they are needed, rather than at the initial load.
+- This helps reduce the initial bundle size, improves performance, and speeds up page load times.
+
+# Use <Suspense> to display a loading indicator while it’s loading.
+
+# lazy loading other names
+- Chunking
+- Code Splitting
+- Dynamic Bundling
+- lazy Loading
+- On demand loading

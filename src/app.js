@@ -1,13 +1,15 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import About from "./components/About";
+//import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Shimmer from "./components/Shimmer";
+//import Grocery from "./components/Grocery";
 
 // const heading = React.createElement(
 //   "h1",
@@ -67,6 +69,11 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 // };
 
 // AppLayout component to render: Header, Outlet(it contain children component like body, About, Restaurant Menu etc) and Footer Component
+
+const Grocery = lazy(() => import("./components/Grocery"));
+
+const About = lazy(() => import("./components/About"));
+
 const AppLayout = () => {
   return (
     <div className="app">
@@ -80,7 +87,7 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />, 
+    element: <AppLayout />,
     children: [
       {
         path: "/",
@@ -95,9 +102,16 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
+      {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
-        
       },
     ],
     errorElement: <Error />,

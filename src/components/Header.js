@@ -1,9 +1,14 @@
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
+
+  const onlineStatus = useOnlineStatus();
+
+  //Press Control + Command + Space to open the emoji picker.
 
   return (
     <div className="header">
@@ -14,6 +19,9 @@ const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
+           Online Status: {onlineStatus ? "✅" : '🔴' } 
+          </li>
+          <li>
             <Link to="/">Home</Link>
           </li>
           <li>
@@ -21,6 +29,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/contact">Contact us</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
           <li>Cart</li>
           <button
