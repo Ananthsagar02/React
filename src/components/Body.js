@@ -47,11 +47,11 @@ export const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-        <div className="search">
+        <div className="px-4 py-2 m-4 ">
           <input
             type="text"
             placeholder="Search"
-            className="search-input"
+            className="border search-input"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
@@ -59,7 +59,7 @@ export const Body = () => {
           ></input>
 
           <button
-            className="search-btn"
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
             onClick={() => {
               //Filter the restaurant cards and update the UI
               console.log(searchText);
@@ -76,7 +76,7 @@ export const Body = () => {
         </div>
 
         <button
-          className="filter-btn"
+          className="px-4 py-2 font-semibold text-blue-700 bg-transparent border border-blue-500 rounded filter-btn hover:bg-blue-500 hover:text-white hover:border-transparent"
           onClick={() => {
             const filteredlist = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4.5
@@ -88,7 +88,7 @@ export const Body = () => {
           Top Rated Restaurant
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap res-container">
         {/* {listOfRestaurants.map((restaurant) => (
           //showing all the restaurants
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />

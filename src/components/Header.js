@@ -11,13 +11,13 @@ const Header = () => {
   //Press Control + Command + Space to open the emoji picker.
 
   return (
-    <div className="header">
+    <div className="flex justify-between bg-blue-100 shadow-lg m-2.5 header">
       <div className="logo-img">
         <img className="logo" src={LOGO_URL} />
       </div>
 
       <div className="nav-items">
-        <ul>
+        <ul className="flex">
           <li>
            Online Status: {onlineStatus ? "✅" : '🔴' } 
           </li>
