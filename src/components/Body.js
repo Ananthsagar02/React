@@ -1,8 +1,9 @@
-import RestaurantCard from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom/";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 export const Body = () => {
   // Local State Variable --Super powerful variable
@@ -11,9 +12,12 @@ export const Body = () => {
 
   const [searchText, setSearchText] = useState(""); // Search Text
 
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard); //Higher Order Component
+
   //Whenever state variables update, react triggers a reconcilation cycle (re-renders the component)
   //Reconciliation - React will compare the previous state with the new state and update only the changed part of the DOM
-  console.log("Body Render");
+  
+ // console.log("Body Render", listOfRestaurants);
 
   //useEffect(2 params) - (callback function, [dependencies array])
   useEffect(() => {
@@ -41,6 +45,8 @@ export const Body = () => {
     return (
       <h1>Looks like you're offline!! Please check your Internet connection</h1>
     );
+
+const { loggedInUser, setUserName } = useContext(UserContext);
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
@@ -87,6 +93,10 @@ export const Body = () => {
         >
           Top Rated Restaurant
         </button>
+        <div className="search m-4 p-4 flex items-center">
+          <label>UserName:</label>
+          <input className="border border-black p-1" type="" value={loggedInUser} onChange={(e) => setUserName(e.target.value)}/>
+        </div>
       </div>
       <div className="flex flex-wrap res-container">
         {/* {listOfRestaurants.map((restaurant) => (
@@ -100,8 +110,11 @@ export const Body = () => {
             key={restaurant?.info?.id}
             to={"/restaurant/" + restaurant?.info?.id}
           >
-            {" "}
-            <RestaurantCard resData={restaurant} />{" "}
+            {restaurant.info.promoted ? ( // if restaurant is promoted then add a promoted label to it
+              <RestaurantCardPromoted resData={restaurant} /> //condition ? expressionIfTrue : expressionIfFalse.  isLoggedIn ? <LogoutButton /> : <LoginButton />
+            ) : (
+              <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

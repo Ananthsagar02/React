@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -6,6 +6,7 @@ import Body from "./components/Body";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
@@ -75,11 +76,25 @@ const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  //authentication
+  useEffect(() => {
+    //make an API call username
+    const data = {
+      name: "Ananth sagar",
+    };
+    setUserName(data.name);
+  },[]);
   return (
-    <div className="app">
-      <Header />
-      <Outlet /> {/* Outlet is used to render the child component */}
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app">
+        
+        <Header />
+        
+        <Outlet /> {/* Outlet is used to render the child component */}
+      </div>
+    </UserContext.Provider>
   );
 };
 

@@ -1,12 +1,16 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
 
   const onlineStatus = useOnlineStatus();
+
+  const { loggedInUser } = useContext(UserContext);
+  console.log(loggedInUser, "context");
 
   //Press Control + Command + Space to open the emoji picker.
 
@@ -18,9 +22,7 @@ const Header = () => {
 
       <div className="nav-items">
         <ul className="flex">
-          <li>
-           Online Status: {onlineStatus ? "✅" : '🔴' } 
-          </li>
+          <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -43,6 +45,7 @@ const Header = () => {
           >
             {btnName}
           </button>
+          <li className="px-4 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>
