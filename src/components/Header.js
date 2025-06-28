@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setbtnName] = useState("Login");
@@ -10,9 +11,13 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const { loggedInUser } = useContext(UserContext);
-  console.log(loggedInUser, "context");
+  // console.log(loggedInUser, "context");
 
   //Press Control + Command + Space to open the emoji picker.
+
+  // Subscribing to the store using a Selector
+  const cartItems = useSelector((store) => store.cart.items);
+  //console.log(cartItems,"store")
 
   return (
     <div className="flex justify-between bg-blue-100 shadow-lg m-2.5 header">
@@ -35,7 +40,11 @@ const Header = () => {
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
+          <li className="font-bold text-xl">
+            <Link to="/cart">
+              Cart <span className="">({cartItems.length} )</span>items
+            </Link>
+          </li>
           <button
             className="login-btn"
             onClick={() => {

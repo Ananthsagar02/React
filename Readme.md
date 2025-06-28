@@ -14,7 +14,7 @@ npm install -D parcel
 
 // package-lock.json --> it keeps a track of all the exact versions
 
-// node_modules --> that stores third-party libraries and dependencies. It's essential for managing dependencies.
+# node_modules --> that stores third-party libraries and dependencies. It's essential for managing dependencies.
 
 //npx--> is the executing the package
 //npx parcel index.html
@@ -74,7 +74,7 @@ React is different and JSX is different
 - useEffect() ==>To run code after the component renders.
 - useEffect is called after body is render or component is render
 
-# why useEffect used  ==> To run code after the component renders.
+# why useEffect used ==> To run code after the component renders.
 
 # useEffect //useEffect(2 params) - (callback function, [dependencies array])
 
@@ -122,9 +122,12 @@ React is different and JSX is different
 ## Use Cases for Lifecycle Methods:
 
 # Life cycle phase two phases
+
 1. “Render phase” ==> in this phase constructor and Render
-2. “Commit phase”. ==> In this phase  ­React updates ­D­O­M and componentDidMount
-# Executes 
+2. “Commit phase”. ==> In this phase ­React updates ­D­O­M and componentDidMount
+
+# Executes
+
 constructor is called ==> Render ==> ­React updates ­D­O­M ==> componentDidMount
 
 ### 1. constructor(props)
@@ -133,7 +136,8 @@ constructor is called ==> Render ==> ­React updates ­D­O­M ==> componentDidM
 - **Example:** Setting up initial values for the state or binding methods to this.
 
 ### 2. componentDidMount() --> it is used to make API calls
-   componentDidMount() is a lifecycle method in React that is called once a component has been rendered and placed in the DOM
+
+componentDidMount() is a lifecycle method in React that is called once a component has been rendered and placed in the DOM
 
 - **Use Case:** Fetching initial data, setting up subscriptions.
 - **Example:** Making an API call to fetch data and setting it in the state.
@@ -154,20 +158,55 @@ constructor is called ==> Render ==> ­React updates ­D­O­M ==> componentDidM
 - **Example:** Removing event listeners or canceling timers.
 
 # CUSTOM HOOK --> Hook are just kind of utility functions
-- Custom hooks in React JS are JavaScript functions that start with the word use and allow you to extract and reuse stateful logic across multiple components. 
+
+- Custom hooks in React JS are JavaScript functions that start with the word use and allow you to extract and reuse stateful logic across multiple components.
 
 # Why use custom Hook
+
 - They help you avoid code duplication and keep your components clean and focused on rendering UI.Reuse logic, Keep components clean
 
 # lazy loading
+
 - Lazy loading in React is a technique to load components or resources only when they are needed, rather than at the initial load.
 - This helps reduce the initial bundle size, improves performance, and speeds up page load times.
 
 # Use <Suspense> to display a loading indicator while it’s loading.
 
 # lazy loading other names
+
 - Chunking
 - Code Splitting
 - Dynamic Bundling
 - lazy Loading
 - On demand loading
+
+# Getting Started with Redux Toolkit
+
+Purpose
+
+- The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
+
+- "Configuring a Redux store is too complicated"
+- "I have to add a lot of packages to get Redux to do anything useful"
+- "Redux requires too much boilerplate code"
+
+# Redux store 
+- --> it is a big object and kept on central palce , any component can access the data
+- Slices of redux store it is a small pices in redux store(logics) ,like user logic, cart logic, initaly it is empty
+
+# Redux working via Add cart
+
+# Add btn ==>.it dispatch(action) calls the fun. ==>  function (reducer function)which modify the cart ==> ['Slice of store']cart ==>is subscrobed using (selector). ==> updated(in cart)
+
+ # Reducer ==> managing the store values or handling the values or to handling the update or modify the state or values
+
+# Selector  ==> is used to read the data from store and selector will modifiy the data.
+      (subscribing to the store)
+
+# Redux Toolkit. ==> handling for state
+ - Install @reduxjs/toolkid and react-redux
+ - Build our store
+ - Connect our store to our app
+ - Slice(cartSlice)
+ - dispatch(action)
+ - Selector

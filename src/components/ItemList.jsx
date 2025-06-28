@@ -1,10 +1,20 @@
 import { useContext } from "react";
 import { RESTAURANT_MENU_API, ITEM_IMG_CDN_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items, dummy }) => {
   // console.log(items, "item");
   //console.log(dummy, "dummy");
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    // Dispatch an action
+    dispatch(addItem(item));
+    // console.log( " Action dummy");
+  };
 
   const { loggedInUser } = useContext(UserContext);
   return (
@@ -12,7 +22,7 @@ const ItemList = ({ items, dummy }) => {
       <div>
         {items.map((item) => (
           <div
-            className="flex justify-between p-2 m-2 text-left border-b-2 border-gray-200"
+            className="flex justify-between p-5 m-4 text-left border-b-2 border-gray-200"
             key={item.card.info.id}
           >
             <div className="w-9/12">
@@ -29,7 +39,11 @@ const ItemList = ({ items, dummy }) => {
             </div>
             <div className="">
               <div className="absolute ">
-                <button className="p-2 m-auto text-lg text-green-800 bg-white shadow-lg font-font-semibold hover:bg-gray-200 w-[120px] rounded-lg">
+                <button
+                  className="p-2 m-auto text-lg text-green-800 bg-white shadow-lg font-font-semibold hover:bg-gray-200 w-[120px] rounded-lg"
+                  onClick={() => handleAddItem(item)}
+                  // call back function
+                >
                   Add +
                 </button>
               </div>

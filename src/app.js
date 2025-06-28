@@ -7,9 +7,12 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 //import Grocery from "./components/Grocery";
 
 // const heading = React.createElement(
@@ -85,16 +88,16 @@ const AppLayout = () => {
       name: "Ananth sagar",
     };
     setUserName(data.name);
-  },[]);
+  }, []);
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="app">
-        
-        <Header />
-        
-        <Outlet /> {/* Outlet is used to render the child component */}
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet /> {/* Outlet is used to render the child component */}
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -127,6 +130,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
