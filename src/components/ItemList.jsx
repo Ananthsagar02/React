@@ -20,10 +20,10 @@ const ItemList = ({ items, dummy }) => {
   return (
     <div>
       <div>
-        {items.map((item) => (
+        {items.map((item, indx) => (
           <div
             className="flex justify-between p-5 m-4 text-left border-b-2 border-gray-200"
-            key={item.card.info.id}
+            key={indx}
           >
             <div className="w-9/12">
               <div className="py-2">

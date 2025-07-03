@@ -28,7 +28,7 @@ const Cart = () => {
         {cartItems.length === 0 && <h1> Cart is Empty Add Items to Cart</h1>}
         <ItemList items={cartItems} />
 
-        <button onClick={() => handleRemoveCart(cartItems)}>Remove Item</button>
+        <button className="bg-blend-saturation" onClick={() => handleRemoveCart(cartItems)}>Remove Item</button>
       </div>
     </div>
   );

@@ -18,6 +18,8 @@ const Header = () => {
   // Subscribing to the store using a Selector
   const cartItems = useSelector((store) => store.cart.items);
   //console.log(cartItems,"store")
+  const bagItems = useSelector((store) => store.prod.product);
+  console.log(bagItems, ' baggg');
 
   return (
     <div className="flex justify-between bg-blue-100 shadow-lg m-2.5 header">
@@ -39,6 +41,14 @@ const Header = () => {
           </li>
           <li>
             <Link to="/grocery">Grocery</Link>
+          </li>
+          <li>
+            <Link to="/product">Product</Link>
+          </li>
+          <li className="font-bold">
+            <Link to="/bag">
+              MY BAG <span>({bagItems.length})</span>
+            </Link>
           </li>
           <li className="font-bold text-xl">
             <Link to="/cart">
@@ -62,3 +72,9 @@ const Header = () => {
 };
 
 export default Header;
+
+//reducers
+//context API
+//redux toolkit
+//axios
+//

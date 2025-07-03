@@ -190,23 +190,54 @@ Purpose
 - "I have to add a lot of packages to get Redux to do anything useful"
 - "Redux requires too much boilerplate code"
 
-# Redux store 
+# Redux store
+
 - --> it is a big object and kept on central palce , any component can access the data
 - Slices of redux store it is a small pices in redux store(logics) ,like user logic, cart logic, initaly it is empty
 
 # Redux working via Add cart
 
-# Add btn ==>.it dispatch(action) calls the fun. ==>  function (reducer function)which modify the cart ==> ['Slice of store']cart ==>is subscrobed using (selector). ==> updated(in cart)
+# Add btn ==>.it dispatch(action) calls the fun. ==> function (reducer function)which modify the cart ==> ['Slice of store']cart ==>is subscrobed using (selector). ==> updated(in cart)
 
- # Reducer ==> managing the store values or handling the values or to handling the update or modify the state or values
+# Reducer ==> managing the store values or handling the values or to handling the update or modify the state or values
 
-# Selector  ==> is used to read the data from store and selector will modifiy the data.
+# Reducer
+
+- A reducer is a function that takes the current state and an action, and returns a new state.
+
+# reducers(state, action)
+
+# Selector ==> is used to read the data from store and selector will modifiy the data.
+
       (subscribing to the store)
 
 # Redux Toolkit. ==> handling for state
- - Install @reduxjs/toolkid and react-redux
- - Build our store
- - Connect our store to our app
- - Slice(cartSlice)
- - dispatch(action)
- - Selector
+
+- Install @reduxjs/toolkid and react-redux
+- Build our store
+- Connect our store to our app
+- Slice(cartSlice)
+- dispatch(action)
+- Selector
+
+# useReducer is a React Hook that is used for managing complex state logic in functional components.
+
+- It is an alternative to useState, especially when you have multiple related state values or advanced state transitions.
+- const [state, dispatch] = useReducer(reducer, initialState);
+- const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+# Dispatch function
+
+- it is used to send actions to the Reducer, which in turn updates the state based on the action's type and any associate data(payload).
+
+# Reducer Function
+
+- A function that takes the current state and an action as argument, and returns a new state.
+
+# why
+
+- Use useReducer when useState becomes hard to manage due to complex or interdependent state logic.
+
+# Why Use Thunks?
+
+- Thunks allow us to write additional Redux-related logic separate from a UI layer. This logic can include side effects, such as async requests or generating random values, as well as logic that requires dispatching multiple actions or access to the Redux store state.

@@ -13,6 +13,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import Product from "./components/Product";
+import Bag from "./components/Bag";
 //import Grocery from "./components/Grocery";
 
 // const heading = React.createElement(
@@ -134,6 +136,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/product",
+        element: <Product />,
+      },
+      {
+        path: "/bag",
+        element: <Bag />,
       },
     ],
     errorElement: <Error />,
